@@ -42,10 +42,10 @@ echo "Using $ARCH Docker image:"
 
 MIRROR="https://dl.fedoraproject.org/pub/fedora/linux/releases/28/Container/$ARCH/images/Fedora-Container-Base-28-1.1.$ARCH.tar.xz"
 
-# try regular armhfp base image instead of minimal
-#if [ "$ARCH" = "armhfp" ]; then
-#    MIRROR="https://dl.fedoraproject.org/pub/fedora/linux/releases/28/Container/$ARCH/images/Fedora-Container-Minimal-Base-28-1.1.$ARCH.tar.xz"
-#fi
+# only minimal base available for armhfp : try fedora 27 base image (docker directory)
+if [ "$ARCH" = "armhfp" ]; then
+    MIRROR="https://dl.fedoraproject.org/pub/fedora/linux/releases/27/Docker/$ARCH/images/Fedora-Docker-Base-27-1.6.$ARCH.tar.xz"
+fi
 
 # create structure for rootfs
 
